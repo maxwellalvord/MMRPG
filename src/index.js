@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import welcome from "./js/salutation.js";
-import {storeState, changeState, stateControl, setName} from './js/comp.js';
+import {storeState, changeState, stateControl, setName, setHealth} from './js/comp.js';
 
-// let player = {name: "", health:10, PP:10};
-// let playerStats = [];
+let player = {name: "", health:10, PP:10};
+let playerStats = [];
 
 // const characterGenerator = (playerInput) => {
 //   const userPlayer = storeState(player);
@@ -30,13 +30,27 @@ $(document).ready(function () {
     console.log(playerInput);
     console.log(playerStats[0]());
   })
+
+  $("#dmg").click(function(event){
+    const userPlayer = storeState(playerStats[0]);
+    userPlayer(setHealth(-5));
+    playerStats.push(userPlayer);
+    $("#test").append(playerStats[0]);
+  })
   
-$("#r1").submit(function (event) {
-  event.preventDefault();
-  let sal = $("#sal").val();
-  let fname = $("#fname").val();
-  console.log(sal);
-  $("#greeting").append(welcome(sal)(fname));
-  console.log(playerStats);
+
 })
-})
+
+
+
+
+
+
+  // $("#r1").submit(function (event) {
+  //   event.preventDefault();
+  //   let sal = $("#sal").val();
+  //   let fname = $("#fname").val();
+  //   console.log(sal);
+  //   $("#greeting").append(welcome(sal)(fname));
+  //   console.log(playerStats);
+  // })

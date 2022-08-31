@@ -26,4 +26,7 @@ export const setState = (prop) => {
   };
 };
 
+
+export const stateControl = storeState();
 export const setName = setState("name");
+export const setHealth = setState("health");
