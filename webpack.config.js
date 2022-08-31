@@ -18,6 +18,21 @@ module.exports = {
       title: 'MMRPG',
       template: './src/index.html',
       inject: 'body'
+    }),
+    // new MiniCSSExtractPlugin(),
+    // ...['room', 'room2'].map((event) => {
+    //   return new HtmlWebpackPlugin({
+    //     template: `./src/${event}/index.html`,
+    //     filename: `${event}.htm`,
+    //   })
+    // })
+    new HtmlWebpackPlugin({
+      template: './src/room.html',
+      filename: 'room.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/room2.html',
+      filename: 'room2.html'
     })
   ],
   module: {
@@ -45,7 +60,8 @@ module.exports = {
         test:/\.html$/,
         use: [
           'html-loader'
-        ]
+        ],
+
       },
       {
         test: /\.js$/,
